@@ -1,0 +1,87 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "background": "white",
+  "padding": 5,
+  "width": 600,
+  "height": 300,
+  "title": {"text": "Obesity Rate (20 Oct 2020)", "frame": "group"},
+  "style": "cell",
+  "data": [
+    {
+      "name": "source_1",
+      "url": "https://raw.githubusercontent.com/Exteriors/FIT3179Assignment3/main/Assignment3/Fat_Supply_Quantity_Data.csv",
+      "format": {"type": "csv", "delimiter": ","}
+    },
+    {
+      "name": "source_0",
+      "url": "https://raw.githubusercontent.com/Exteriors/FIT3179Assignment3/main/Assignment3/obeserate.json",
+      "format": {"type": "topojson", "feature": "obeserate", "parse": {}},
+      "transform": [
+        {
+          "type": "formula",
+          "expr": "datum[\"properties\"] && datum[\"properties\"][\"name\"]",
+          "as": "properties.name"
+        },
+        {
+          "type": "lookup",
+          "from": "source_1",
+          "key": "Country",
+          "fields": ["properties.name"],
+          "values": ["Obesity"]
+        },
+        {"type": "formula", "expr": "datum.Obesity", "as": "Obesity Rate"},
+        {
+          "type": "filter",
+          "expr": "isValid(datum[\"Obesity Rate\"]) && isFinite(+datum[\"Obesity Rate\"])"
+        }
+      ]
+    }
+  ],
+  "projections": [
+    {
+      "name": "projection",
+      "size": {"signal": "[width, height]"},
+      "fit": {"signal": "data('source_0')"},
+      "type": "equirectangular"
+    }
+  ],
+  "marks": [
+    {
+      "name": "marks",
+      "type": "shape",
+      "style": ["geoshape"],
+      "from": {"data": "source_0"},
+      "encode": {
+        "update": {
+          "fill": {"scale": "color", "field": "Obesity Rate"},
+          "tooltip": {
+            "signal": "{\"Country\": isValid(datum[\"properties.name\"]) ? datum[\"properties.name\"] : \"\"+datum[\"properties.name\"], \"Obesity Rate\": format(datum[\"Obesity Rate\"], \".2f\")}"
+          },
+          "ariaRoleDescription": {"value": "geoshape"},
+          "description": {
+            "signal": "\"Obesity Rate: \" + (format(datum[\"Obesity Rate\"], \"\")) + \"; Country: \" + (isValid(datum[\"properties.name\"]) ? datum[\"properties.name\"] : \"\"+datum[\"properties.name\"])"
+          }
+        }
+      },
+      "transform": [{"type": "geoshape", "projection": "projection"}]
+    }
+  ],
+  "scales": [
+    {
+      "name": "color",
+      "type": "threshold",
+      "domain": [10, 25, 35],
+      "range": ["#fdbe85", "#fd8d3c", "#e6550d", "#a63603"],
+      "interpolate": "hcl"
+    }
+  ],
+  "legends": [
+    {
+      "fill": "color",
+      "labelOverlap": "greedy",
+      "symbolType": "circle",
+      "title": "Obesity Rate"
+    }
+  ],
+  "config": {}
+}
