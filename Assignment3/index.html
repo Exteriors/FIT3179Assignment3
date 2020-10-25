@@ -12,13 +12,23 @@
   
 </head>
 <body>
+<h1> Food Nutrition Rates Around The World <h1>
   
+<h2> Obesity Rate From Different Country <h2> 
 <div id="choropleth_map"></div>
+  
+<h2> Obesity Rate VS Undernourished Rate From Different Country <h2> 
+<div id="bubble_chart"></div>
 
 <script type="text/javascript">
 
   var spec2 = "./choropleth_map.vg.json";
+  var spec3 = "./bubble_map.vg.json";
   vegaEmbed('#choropleth_map', spec2).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+  
+  vegaEmbed('#bubble_chart', spec3).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 </script>
