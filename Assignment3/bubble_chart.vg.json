@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "background": "white",
-  "width": 400,
-  "height": 500,
+  "width": 300,
+  "height": 400,
   "title": {
     "text": "Obesity Rate VS Undernourished Rate Per Country (20 Oct 2020)",
     "frame": "group"
