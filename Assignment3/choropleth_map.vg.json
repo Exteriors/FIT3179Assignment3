@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "background": "white",
-  "width": 800,
-  "height": 600,
+  "width": 400,
+  "height": 200,
   "title": {"text": "Obesity Rate (20 Oct 2020)", "frame": "group"},
   "style": "cell",
   "data": [
