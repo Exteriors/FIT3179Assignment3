@@ -3,22 +3,31 @@
   "description": "A simple donut chart with embedded data.",
   "background": "white",
   "padding": 5,
-  "width": 200,
+  "width": 250,
   "height": 200,
   "title": {
-    "text": "Top 5 Country With Highest Undernourished Population",
+    "text": "Top 10 Country With Highest Undernourished Population",
     "frame": "group"
   },
   "style": "cell",
   "encode": {"update": {"stroke": {"value": null}}},
+  "signals": [
+
+    {
+      "name": "innerRadius", "value": 60,
+      "bind": {"input": "range", "min": 0, "max": 90, "step": 1}
+    }
+  ],
   "data": [
     {
       "name": "source_0",
       "url": "https://raw.githubusercontent.com/Exteriors/FIT3179Assignment3/main/Assignment3/Fat_Supply_Quantity_Data.csv",
       "format": {"type": "csv", "delimiter": ","},
       "transform": [
+        
         {
           "type": "formula",
+          
           "expr": "(datum.Undernourished/100)*datum.Population",
           "as": "Total Undernourished Population"
         },
@@ -42,14 +51,17 @@
     }
   ],
   "marks": [
+    
     {
       "name": "marks",
       "type": "arc",
       "style": ["arc"],
       "from": {"data": "source_0"},
       "encode": {
+        
         "update": {
-          "innerRadius": {"value": 70},
+          
+          "innerRadius": {"signal": "innerRadius"},
           "fill": {"scale": "color", "field": "Country"},
           "description": {
             "signal": "\"Undernourished: \" + (format(datum[\"Undernourished\"], \"\")) + \"; Country: \" + (isValid(datum[\"Country\"]) ? datum[\"Country\"] : \"\"+datum[\"Country\"])"
