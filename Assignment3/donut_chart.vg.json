@@ -3,7 +3,7 @@
   "description": "A simple donut chart with embedded data.",
   "background": "white",
   "padding": 5,
-  "width": 250,
+  "width": 200,
   "height": 200,
   "title": {
     "text": "Top 10 Country With Highest Undernourished Population",
