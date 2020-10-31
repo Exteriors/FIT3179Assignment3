@@ -88,7 +88,7 @@
       "name": "color",
       "type": "ordinal",
       "domain": {"data": "source_0", "field": "Country", "sort": true},
-      "range": "category"
+      "range": {"scheme": "turbo"}
     }
   ],
   "legends": [{"fill": "color", "symbolType": "circle", "title": "Country"}],
