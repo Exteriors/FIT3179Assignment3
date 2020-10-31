@@ -59,8 +59,7 @@
           "innerRadius": {"signal": "innerRadius"},
           "fill": {"scale": "color", "field": "Country"},
           "tooltip": {
-            "signal": "{\"Country\": isValid(datum[\"Country\"]) ? datum[\"Country\"] : \"\"+datum[\"Country\"], \"Total Undernourished People\": format(datum[\"Total Undernourished People\"], \"\")}"
-          },
+            "signal": "{\"Country\": isValid(datum[\"Country\"]) ? datum[\"Country\"] : \"\"+datum[\"Country\"], \"Total Undernourished People\": format(datum[\"Total Undernourished People\"], \"\")}"},
           "description": {
             "signal": "\"Undernourished: \" + (format(datum[\"Undernourished\"], \"\")) + \"; Country: \" + (isValid(datum[\"Country\"]) ? datum[\"Country\"] : \"\"+datum[\"Country\"])"
           },
