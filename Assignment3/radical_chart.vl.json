@@ -2,6 +2,8 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "description": "A simple radial chart with embedded data.",
   "title": "Average Fat Intake By Meat From Each Continent (%)",
+  "width": 200,
+  "height": 200,
   "data": {
     "url": "https://raw.githubusercontent.com/Exteriors/FIT3179Assignment3/main/Assignment3/Fat_Supply_Quantity_Data.csv"
   },
