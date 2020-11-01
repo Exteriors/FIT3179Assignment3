@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "height": 200,
-  "width": 400,
+  "width": 350,
   "title": "The Average Vegetable Intake From Each Continent",
   "data": {
     "url": "https://raw.githubusercontent.com/Exteriors/FIT3179Assignment3/main/Assignment3/Food_Supply_Quantity_kg_Data.csv"
