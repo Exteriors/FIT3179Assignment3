@@ -1,0 +1,62 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "description": "A simple radial chart with embedded data.",
+  "title": "Average Fat Intake By Meat From Each Continent (%)",
+  "data": {
+    "url": "https://raw.githubusercontent.com/Exteriors/FIT3179Assignment3/main/Assignment3/Fat_Supply_Quantity_Data.csv"
+  },
+  "transform": [
+    {
+      "aggregate": [
+        {"op": "mean", "field": "Meat", "as": "Average Fat Intake From Meat"}
+      ],
+      "groupby": ["Continent"]
+    }
+  ],
+  "layer": [
+    {"mark": {"type": "arc", "innerRadius": 20, "stroke": "#fff"}},
+    {
+      "mark": {
+        "type": "text",
+        "radiusOffset": 20,
+        "fontSize": 13,
+        "font": "Arial"
+      },
+      "encoding": {
+        "text": {
+          "field": "Average Fat Intake From Meat",
+          "type": "quantitative",
+          "format": ".2f"
+        }
+      }
+    }
+  ],
+  "encoding": {
+    "tooltip": [{"field": "Continent", "type": "nominal"}],
+    "theta": {
+      "field": "Average Fat Intake From Meat",
+      "type": "quantitative",
+      "stack": true
+    },
+    "radius": {
+      "field": "Average Fat Intake From Meat",
+      "scale": {"type": "sqrt", "zero": true, "rangeMin": 5}
+    },
+    "color": {
+      "field": "Continent",
+      "type": "nominal",
+      "scale": {
+        "range": [
+          "#58D68D",
+          "#377eb8",
+          "#ff7f00",
+          "#e41a1c",
+          "#F4D03F",
+          "#984ea3"
+        ]
+      }
+    }
+  },
+  "view": {"stroke": null},
+  "config": {}
+}
