@@ -118,7 +118,7 @@
           </div>
         </div>
         <div class="pure-u-2-3">
-          <div id="radical_chart" class="vis-container"></div>
+          <div id="choropleth_map" class="vis-container"></div>
         </div>
     </div>
 
@@ -145,9 +145,9 @@
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
   
-  var vis4 = "./radical_chart.vl.json";
+  var vis4 = "./choropleth_map.vg.json";
   
-  vegaEmbed('#radical_chart', vis4).then(function(result) {
+  vegaEmbed('#choropleth_map', vis4).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 </script>
