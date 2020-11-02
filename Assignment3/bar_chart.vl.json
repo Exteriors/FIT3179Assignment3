@@ -25,21 +25,6 @@
       "field": "Average Vegetable Intake In Grams",
       "type": "quantitative",
       "scale": {"padding": 10}
-    },
-    "color": {
-      "field": "Continent",
-      "type": "nominal",
-      "scale": {
-        "range": [
-          "#58D68D",
-          "#377eb8",
-          "#ff7f00",
-          "#e41a1c",
-          "#F4D03F",
-          "#984ea3"
-        ]
-      },
-      "legend": null
     }
   },
   "layer": [
